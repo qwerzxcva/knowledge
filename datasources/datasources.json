@@ -1,0 +1,9 @@
+{
+ "tencent_ifzq": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={sym},day,,,{n},qfq — 日K/分时/指数全史",
+ "sina": "资金流/龙虎榜历史(限1023行)",
+ "akshare": "1.19.1: stock_zh_index_daily(指数全史唯一通路)/stock_lhb*/index_hist_sw(申万31行业)/stock_zt_pool_em/stock_lhb_stock_detail_em(席位)",
+ "eastmoney": "push2域IP级403不可用; kline部分可用",
+ "local_duckdb": "factor_matrix.duckdb(fwd_horizon/alpha158/academic/vol/beta/accel/seat表), qfq_all.duckdb(全市场前复权), knowledge.duckdb(知识)",
+ "github_shards": "db-stocks-a/b/c/d: <repo>/main/<前2位>/<代码>/stock.json; skapp-data: search/symbols.json",
+ "modelscope": "/home/agentuser/models Qwen3-0.6B基底(hf不稳时走此路)"
+}

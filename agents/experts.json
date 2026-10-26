@@ -1,0 +1,161 @@
+[
+ {
+  "expert": "ml_ensemble",
+  "weight": 1.0,
+  "spec": "GBDT+NB 反向双共识合并为一票 (原 engine5+6 去重)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "dual_trend",
+  "weight": 0.8,
+  "spec": "ADX 与 factor117 trend 类重叠 → 降权",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "calendar",
+  "weight": 0.5,
+  "spec": "乘数而非独立票, 仅调整总分",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "academic_factors",
+  "weight": 0.6,
+  "spec": "Amihud非流动性(IC+0.044近4年稳)+MAX彩票+52W锚定; 2026-10-25全史验证",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "event_pattern",
+  "weight": 0.7,
+  "spec": "事件形态: 52W新高正向/开板出货与涨停巨阴负向(5事件2024+回测)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "rs_engine",
+  "weight": 0.7,
+  "spec": "双层RS: 31申万行业RS+个股超额 (行业动量)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "vol_structure",
+  "weight": 0.6,
+  "spec": "波动率结构: amp_pct_250 低波异象 IC-0.041 三年稳; 隔夜/日内分解",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "strength_decay",
+  "weight": 0.8,
+  "spec": "涨停缩量封板+2.6%/5日 vs 放量-0.1% (n=33k 2022+)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "calendar_rules",
+  "weight": 0.4,
+  "spec": "节前效应+0.24%边际62%胜率(36年); 月初2020s退化降权",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "garch_vol",
+  "weight": 0.5,
+  "spec": "GARCH(1,1)+EWMA波动率状态机+VFM仓位(α+β=0.95); 高波动状态次日+0.24%",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "herding",
+  "weight": 0.5,
+  "spec": "CSAD拥挤度: 分歧>0.8未来5日+0.55% vs 拥挤-0.20% (1400日)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "gap_engine",
+  "weight": 0.6,
+  "spec": "缺口: >2%突破缺口回补率37.7%后5日+3.69%; 普通缺口57.2%回补",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "tail_risk",
+  "weight": 0.4,
+  "spec": "EVT VaR/CVaR+bootstrap回撤; 上证20日95%最坏-6.3%(当前)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "seasonality",
+  "weight": 0.4,
+  "spec": "2月效应+2.92%胜率75%(4年代全正); 10月最弱",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "accel_momentum",
+  "weight": 0.5,
+  "spec": "速度×加速度: 下跌减速5日+0.60%最强; A股动量持有无效",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "size_liquidity",
+  "weight": 0.7,
+  "spec": "小盘溢价(成交额代理)+1.71%/20日, 2023-26四年全正",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "meanrev_rsi",
+  "weight": 0.4,
+  "spec": "RSI2: A股与美股相反, 裸超卖无效(+0.16%) 超买延续(+0.52%/5日)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "pairs_arb",
+  "weight": 0.3,
+  "spec": "协整配对Z分位+OU半衰期(行业轮动参考)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "trend_align",
+  "weight": 0.4,
+  "spec": "多周期排列: 空头排列10日+0.91~0.98%>多头+0.37% — 反转主导",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "vol_target",
+  "weight": 0.5,
+  "spec": "个股EWMA年化波动(stock_vol表63.6万行) → VFM仓位权重",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "volume_shape",
+  "weight": 0.8,
+  "spec": "量能形态: 温和量堆+0.51%/5日(n=10万) vs 连续天量-1.76%胜率31%出货警报",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "pead",
+  "weight": 0.5,
+  "spec": "2026-10-25: fin_pit 4250票两年到位; quality_score单调有效(Q5-Q1=+0.67%/10日, 抗跌型)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "quality_factors",
+  "weight": 0.5,
+  "spec": "ROE*2+净利增速+毛利率-负债*0.3; 单调分层, 用于防御性加权(下跌段抗跌)",
+  "type": "engine-expert"
+ },
+ {
+  "expert": "高位出货",
+  "type": "router-module"
+ },
+ {
+  "expert": "低位股分析",
+  "type": "router-module"
+ },
+ {
+  "expert": "低位吸筹",
+  "type": "router-module"
+ },
+ {
+  "expert": "周期轮动",
+  "type": "router-module"
+ },
+ {
+  "expert": "cron_schedule",
+  "spec": "ne4.log 2>&1; fi'\n*/45 * * * * flock -n /tmp/lhb.lock sh -c 'if [ ! -f /tmp/LHB_DONE ]; then /tmp/senv/bin/python /tmp/lhb_backfill.py >> /tmp/lhb_backfill.log 2>&1; fi'\n10 16 * * 1-5 cd /home/agentuser/stockdb/t1 && /tmp/senv/bin/python -c \"from fetch_zt_ths import fetch_day; import duckdb, json, datetime; d=datetime.date.today().strftime('%Y%m%d'); rows=fetch_day(d); con=duckdb.connect('/home/agentuser/stockdb/knowledge.duckdb'); con.execute('CREATE TABLE IF NOT EXISTS zt_ths (symbol VARCHAR, lianban INT, fengdan_wan DOUBLE, zhaban INT, d DATE)'); [con.execute('INSERT INTO zt_ths VALUES (?,?,?,?,?)', (r['symbol'], r['lianban'], r['fengdan_wan'], r['zhaban'], datetime.date.today())) for r in rows]; print(len(rows))\" >> /tmp/zt_ths.log 2>&1\n30 16 * * 1-5 curl -s --max-time 30 https://raw.githubusercontent.com/qwerzxcva/stocks-ai-view/main/data/data/today_picks.json -o /home/agentuser/stockdb/t1/data/samples/picks_$(date +\\%Y-\\%m-\\%d).json\n25 * * * * /tmp/night_watch.sh\n5 8 * * 1-5 /tmp/senv/bin/python /home/agentuser/stockdb/t1/alphas/prediction_loop.py predict >> /tmp/pred_loop.log 2>&1\n10 16 * * 1-5 /tmp/senv/bin/python /home/agentuser/stockdb/t1/alphas/prediction_loop.py eval >> /tmp/pred_loop.log 2>&1\n30 16 * * 1-5 /tmp/senv/bin/python /home/agentuser/stockdb/t1/alphas/intraday_archive.py >> /tmp/intraday.log 2>&1\n40 17 * * 1-5 /tmp/senv/bin/python /tmp/sw_backfill.py >> /tmp/sw.log 2>&1\n0 18 * * 1-5 /tmp/senv/bin/python /tmp/seat_detail_backfill.py >> /tmp/seat.log 2>&1\n",
+  "type": "ops"
+ }
+]
